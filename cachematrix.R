@@ -1,7 +1,11 @@
-## Put comments here that give an overall description of what your
-## functions do
+## Matrix inversion is computationally heavy and is often better of being cached as opposed
+## being computed over and over again. The two functions below offer an option to do this activity.
 
-## Write a short comment describing this function
+## There are 4 steps to this function
+## set a value
+## get a value
+## set a value for the inverse
+## get a value for the inverse
 
 makeCacheMatrix <- function(x = numeric()) {
      m <- NULL
@@ -17,9 +21,9 @@ makeCacheMatrix <- function(x = numeric()) {
           getsolve = getsolve)
 }
 
-
-
-## Write a short comment describing this function
+## This next function brings back the inverse of the matrix, checking to see if it 
+## has already been calculated, if it has, it uses the cached version and lets you now that
+## is the case. See the run below where it does just that.
 
 cacheSolve <- function(x, ...) {
      m <- x$getsolve()
@@ -32,3 +36,17 @@ cacheSolve <- function(x, ...) {
      x$setsolve(m)
      m
 }
+
+## BELOW IS A SAMPLE RUN WORKING FOR BOTH CASES
+
+## myMatrix_object <- makeCacheMatrix(m1)
+## cacheSolve(myMatrix_object)
+##     [,1] [,2]
+## [1,]    6    8
+## [2,]    2    4
+## cacheSolve(myMatrix_object)
+## getting inverse data
+##     [,1] [,2]
+## [1,]    6    8
+## [2,]    2    4
+ 
